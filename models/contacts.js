@@ -45,7 +45,7 @@ const updateContact = async (contactId, data) => {
   if (index === -1) {
     return null;
   }
-  contacts[index] = { contactId, ...data };
+  contacts[index] = { id: contactId, ...data };
   await updateContactsStorage(contacts);
   return contacts[index];
 };
