@@ -14,11 +14,17 @@ const contactSchema = new Schema(
     },
     phone: {
       type: String,
+      match: [/^\d{10}$/],
       required: [true, "Set phone for contact"],
     },
     favorite: {
       type: Boolean,
       default: false,
+    },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
     },
   },
   { versionKey: false, timestamps: true }
