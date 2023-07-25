@@ -17,7 +17,7 @@ const transport = nodemailer.createTransport(nodemailerConfig);
 
 const sendEmail = async (data) => {
   const email = { ...data, from: META_EMAIL };
-  await transport.sendMail(email);
+  await transport.sendMail(email).then((info) => console.log(info));
   return true;
 };
 
